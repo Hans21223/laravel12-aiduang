@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use Livewire\Volt\Volt;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return redirect()->route('news.index');
@@ -29,9 +30,7 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
+Route::get('/profile', [ProfileController::class, 'edit'])->middleware(['auth'])->name('profile.edit');
 
 require __DIR__.'/auth.php';
 
