@@ -17,6 +17,7 @@ test('users can authenticate using the login screen', function () {
     ]);
 
     $this->assertAuthenticated();
+    $response->assertRedirect(route('news.index', absolute: false));
     $response->assertRedirect(route('dashboard', absolute: false));
 });
 
