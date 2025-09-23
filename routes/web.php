@@ -32,7 +32,7 @@ Route::view('dashboard', 'dashboard')
 
 Route::get('/profile', [ProfileController::class, 'edit'])->middleware(['auth'])->name('profile.edit');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 // --- Volt Routes ---
 Volt::route('/settings/profile', 'settings.profile')
@@ -42,3 +42,7 @@ Volt::route('/settings/profile', 'settings.profile')
 Volt::route('/settings/password', 'settings.password')
     ->middleware('auth')
     ->name('settings.password');
+
+Volt::route('/settings/appearance', 'settings.appearance')
+    ->middleware('auth')
+    ->name('appearance.edit');
